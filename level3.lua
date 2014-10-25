@@ -1,9 +1,8 @@
-local storyboard = require( "storyboard" )
-local scene = storyboard.newScene()
-
 display.setStatusBar( display.HiddenStatusBar )
 
-local storyboard = require "storyboard"
+
+local storyboard = require( "storyboard" )
+local scene = storyboard.newScene()
 
 local topY = display.screenOriginY --Numerical value for the top of the screen
 local rightX = display.contentWidth - display.screenOriginX --Numerical value for the right of the screen
@@ -11,6 +10,16 @@ local bottomY = display.contentHeight - display.screenOriginY --Numerical value 
 local leftX = display.screenOriginX --Numerical value for the left of the screen
 local screenW = rightX - leftX --Numerical value for the width of the screen
 local screenH = bottomY - topY --Numerical value for the height of the screen
+
+
+
+
+
+-- Crea bg y remplace level 1 y poner 6 botones abajo, cuando haga eso lo paso y hace los nieveles. 
+levelTwoBackground = display.newImageRect("Background.png",screenW,screenH)
+levelTwoBackground:setReferencePoint(display.TopLeftReferencePoint)
+levelTwoBackground.x = leftX
+levelTwoBackground.y = topY
 
 character = display.newImageRect("Character.png",50,50)
 character:setReferencePoint(display.TopLeftReferencePoint)
@@ -20,7 +29,7 @@ character.y = screenH/2 - character.height/2 + topY
 playButton = display.newImageRect("Play.png",100,50)
 playButton:setReferencePoint(display.TopLeftReferencePoint)
 playButton.x = rightX - playButton.width - screenW/20
-playButton.y = screenH/2 - playButton.height/2 + topY
+playButton.y = screenH/5 - playButton.height/2 + topY
 
 tile1 = display.newImageRect("Tile.png",50,50)
 tile1:setReferencePoint(display.TopLeftReferencePoint)
@@ -34,38 +43,89 @@ tile2.y = screenH/2 - tile1.height/2 + topY
 
 tile3 = display.newImageRect("Tile.png",50,50)
 tile3:setReferencePoint(display.TopLeftReferencePoint)
-tile3.x = leftX + screenW/20 + tile1.width*2
-tile3.y = screenH/2 - tile1.height/2 + topY - tile3.height
+tile3.x = leftX + screenW/20 + tile1.width*3
+tile3.y = screenH/2 - tile1.height/2 + topY
 
 tile4 = display.newImageRect("Tile.png",50,50)
 tile4:setReferencePoint(display.TopLeftReferencePoint)
-tile4.x = leftX + screenW/20 + tile1.width*2
-tile4.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile4.x = leftX + screenW/20 + tile1.width*4
+tile4.y = screenH/2 - tile1.height/2 + topY
 
 tile5 = display.newImageRect("Tile.png",50,50)
 tile5:setReferencePoint(display.TopLeftReferencePoint)
-tile5.x = leftX + screenW/20 + tile1.width*3
-tile5.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile5.x = leftX + screenW/20 + tile1.width*5
+tile5.y = screenH/2 - tile1.height/2 + topY
 
 tile6 = display.newImageRect("Tile.png",50,50)
 tile6:setReferencePoint(display.TopLeftReferencePoint)
-tile6.x = leftX + screenW/20 + tile1.width*4
-tile6.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile6.x = leftX + screenW/20 + tile1.width*6
+tile6.y = screenH/2 - tile1.height/2 + topY
+
+
+
 
 tile7 = display.newImageRect("Tile.png",50,50)
 tile7:setReferencePoint(display.TopLeftReferencePoint)
-tile7.x = leftX + screenW/20 + tile1.width*5
-tile7.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile7.x = leftX + screenW/20 + tile1.width
+tile7.y = screenH/2 - tile1.height/2 + topY
 
 tile8 = display.newImageRect("Tile.png",50,50)
 tile8:setReferencePoint(display.TopLeftReferencePoint)
-tile8.x = leftX + screenW/20 + tile1.width*6
-tile8.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile8.x = leftX + screenW/20 + tile1.width*2
+tile8.y = screenH/2 - tile1.height/2 + topY
 
 tile9 = display.newImageRect("Tile.png",50,50)
 tile9:setReferencePoint(display.TopLeftReferencePoint)
-tile9.x = leftX + screenW/20 + tile1.width*6
-tile9.y = screenH/2 - tile1.height/2 + topY - tile3.height
+tile9.x = leftX + screenW/20 + tile1.width*3
+tile9.y = screenH/2 - tile1.height/2 + topY
+
+tile10 = display.newImageRect("Tile.png",50,50)
+tile10:setReferencePoint(display.TopLeftReferencePoint)
+tile10.x = leftX + screenW/20 + tile1.width*4
+tile10.y = screenH/2 - tile1.height/2 + topY
+
+tile11 = display.newImageRect("Tile.png",50,50)
+tile11:setReferencePoint(display.TopLeftReferencePoint)
+tile11.x = leftX + screenW/20 + tile1.width*5
+tile11.y = screenH/2 - tile1.height/2 + topY
+
+tile12 = display.newImageRect("Tile.png",50,50)
+tile12:setReferencePoint(display.TopLeftReferencePoint)
+tile12.x = leftX + screenW/20 + tile1.width*6
+tile12.y = screenH/2 - tile1.height/2 + topY
+
+
+
+tile13 = display.newImageRect("Tile.png",50,50)
+tile13:setReferencePoint(display.TopLeftReferencePoint)
+tile13.x = leftX + screenW/20 + tile1.width
+tile13.y = screenH/2 - tile1.height/2 + topY
+
+tile14 = display.newImageRect("Tile.png",50,50)
+tile14:setReferencePoint(display.TopLeftReferencePoint)
+tile14.x = leftX + screenW/20 + tile1.width*2
+tile14.y = screenH/2 - tile1.height/2 + topY
+
+tile15 = display.newImageRect("Tile.png",50,50)
+tile15:setReferencePoint(display.TopLeftReferencePoint)
+tile15.x = leftX + screenW/20 + tile1.width*3
+tile15.y = screenH/2 - tile1.height/2 + topY
+
+tile16 = display.newImageRect("Tile.png",50,50)
+tile16:setReferencePoint(display.TopLeftReferencePoint)
+tile16.x = leftX + screenW/20 + tile1.width*4
+tile16.y = screenH/2 - tile1.height/2 + topY
+
+tile17 = display.newImageRect("Tile.png",50,50)
+tile17:setReferencePoint(display.TopLeftReferencePoint)
+tile17.x = leftX + screenW/20 + tile1.width*5
+tile17.y = screenH/2 - tile1.height/2 + topY
+
+tile18 = display.newImageRect("Tile.png",50,50)
+tile18:setReferencePoint(display.TopLeftReferencePoint)
+tile18.x = leftX + screenW/20 + tile1.width*6
+tile18.y = screenH/2 - tile1.height/2 + topY
+
 
 counter = 0
 
@@ -80,7 +140,16 @@ local images = {
 		[6] = tile6,
         [7] = tile7,
         [8] = tile8,
-        [9] = tile9
+        [9] = tile9,
+		[10] = tile10,
+        [11] = tile11,
+        [12] = tile12,
+        [13] = tile13,
+		[14] = tile14,
+        [15] = tile15,
+        [16] = tile16,
+        [17] = tile17,
+		[18] = tile18
     }
 	
 local positions = {
@@ -92,7 +161,16 @@ local positions = {
 	[6] = false,
     [7] = false,
     [8] = false,
-    [9] = false
+    [9] = false,
+	[10] = false,
+    [11] = false,
+    [12] = false,
+    [13] = false,
+	[14] = false,
+    [15] = false,
+    [16] = false,
+    [17] = false,
+	[18] = false
 }
 
 local instructions = {
@@ -104,19 +182,37 @@ local instructions = {
 		[6] = 0,
         [7] = 0,
         [8] = 0,
-        [9] = 0
+        [9] = 0,
+		[10] = 0,
+        [11] = 0,
+        [12] = 0,
+        [13] = 0,
+		[14] = 0,
+        [15] = 0,
+        [16] = 0,
+        [17] = 0,
+		[18] = 0
     }
 	
 local answers = {
     [1] = 1,
-    [2] = 3,
-    [3] = 3,
+    [2] = 1,
+    [3] = 1,
     [4] = 1,
     [5] = 1,
-	[6] = 1,
+	[6] = 5,
     [7] = 1,
-    [8] = 4,
-    [9] = 4
+    [8] = 1,
+    [9] = 1,
+	[10] = 1,
+    [11] = 1,
+    [12] = 5,
+    [13] = 1,
+	[14] = 1,
+    [15] = 1,
+    [16] = 1,
+    [17] = 1,
+	[18] = 5
     }
 	
 
@@ -138,6 +234,10 @@ function moveCharacter()
 			movement = transition.to(character, {time=500, y=character.y - character.width})
 		elseif x==4 then
 			movement = transition.to(character, {time=500, y=character.y + character.width})
+		elseif x==5 then
+			movement = transition.to(character, {time=500, x=images[1].x, y=images[1].y})
+		elseif x==6 then
+			movement = transition.to(character, {time=500, x=images[1].x, y=images[1].y})
 		end
 		
 		if(x~=y) then
@@ -147,7 +247,6 @@ function moveCharacter()
 			
 			if counter > #instructions then
 				timer.cancel(timerCongelacion)
-				nextLevel()
 			end
 		
 		end
@@ -159,6 +258,10 @@ function startGame(event)
 	playButton.alpha = 1
 	counter = 0
 	if(event.phase == "ended") then
+		for i=1, 6 do
+			instructions[i+6] = instructions[i]
+			instructions[i+12] = instructions[i]
+		end
 		timerCongelacion = timer.performWithDelay( 550, moveCharacter, 0 )
 		playButton:removeEventListener("touch",startGame)
 	end
@@ -172,7 +275,7 @@ function restartGame()
 	timer.cancel(timerCongelacion)
 	timer.performWithDelay(600, function()
 	character.x = leftX + screenW/20
-	character.y = screenH/2 - character.height/2 + topY
+	character.y = screenH/5 - character.height/2 + topY
 	end,1)
 	playButton:addEventListener("touch",startGame)
 end
@@ -184,8 +287,8 @@ function nextLevel()
 		effect = "fade",
 		time = 500,
 		}
-		storyboard.gotoScene("level2", options)
-		storyboard.removeScene("level1")
+		storyboard.gotoScene("level3", options)
+		storyboard.removeScene("level2")
 	end, 1)
 end
 
@@ -209,6 +312,8 @@ function checkArray()
 end
 
 function createInterface()
+
+
 	barGroup = display.newGroup()
 	bar = display.newImageRect("Imagenes/barra.png",screenW,80)
 	bar.name = "bar"
@@ -217,13 +322,14 @@ function createInterface()
 	bar.x = leftX
 	bar.y = bottomY - bar.height
 	barGroup:insert( bar )
-	barGroup:toBack()
-
+	barGroup:toFront()
 
 	imagesGroup = display.newGroup()
 	imagesGroup:toFront()
 
 
+
+-- 																BOTONES JOAQUIN RAMIREZ
 	spaceX = 20
 	leftImage = display.newImageRect("Imagenes/yellow.png",50,50)
 	leftImage.name = "leftImage"
@@ -253,7 +359,8 @@ function createInterface()
 	downImage.x = leftX + upImage.x + leftImage.width + spaceX
 	downImage.y = bottomY - upImage.height - upImage.height/2 
 	imagesGroup:insert( downImage )
-	
+
+
 	function1Image = display.newImageRect("Imagenes/function1.png",50,50)
 	function1Image.name = "function1Image"
 	function1Image:setReferencePoint(display.TopLeftReferencePoint)
@@ -267,7 +374,9 @@ function createInterface()
 	function2Image.x = leftX + function1Image.x + leftImage.width + spaceX
 	function2Image.y = bottomY - upImage.height - upImage.height/2 
 	imagesGroup:insert( function2Image )
-	
+
+
+
 	local instructionsPositions = {
         [1] = leftImage.x,
         [2] = rightImage.x,
@@ -451,8 +560,10 @@ function createInterface()
 	rightImage:addEventListener( "touch", myTouchListener )
 	upImage:addEventListener( "touch", myTouchListener )
 	downImage:addEventListener( "touch", myTouchListener )
+
 	function1Image:addEventListener( "touch", myTouchListener )
 	function2Image:addEventListener( "touch", myTouchListener )
+
 end
 
 playButton:addEventListener("touch",startGame)

@@ -24,57 +24,57 @@ levelTwoBackground.y = topY
 character = display.newImageRect("Character.png",50,50)
 character:setReferencePoint(display.TopLeftReferencePoint)
 character.x = leftX + screenW/20
-character.y = screenH/2 - character.height/2 + topY
+character.y = screenH/5 - character.height/2 + topY
 
 playButton = display.newImageRect("Play.png",100,50)
 playButton:setReferencePoint(display.TopLeftReferencePoint)
 playButton.x = rightX - playButton.width - screenW/20
-playButton.y = screenH/2 - playButton.height/2 + topY
+playButton.y = screenH/5 - playButton.height/2 + topY
 
 tile1 = display.newImageRect("Tile.png",50,50)
 tile1:setReferencePoint(display.TopLeftReferencePoint)
 tile1.x = leftX + screenW/20 + tile1.width
-tile1.y = screenH/2 - tile1.height/2 + topY
+tile1.y = screenH/5 - tile1.height/2 + topY
 
 tile2 = display.newImageRect("Tile.png",50,50)
 tile2:setReferencePoint(display.TopLeftReferencePoint)
 tile2.x = leftX + screenW/20 + tile1.width*2
-tile2.y = screenH/2 - tile1.height/2 + topY
+tile2.y = screenH/5 - tile1.height/2 + topY
 
 tile3 = display.newImageRect("Tile.png",50,50)
 tile3:setReferencePoint(display.TopLeftReferencePoint)
-tile3.x = leftX + screenW/20 + tile1.width*2
-tile3.y = screenH/2 - tile1.height/2 + topY - tile3.height
+tile3.x = leftX + screenW/20 + tile1.width*3
+tile3.y = screenH/5 - tile1.height/2 + topY
 
 tile4 = display.newImageRect("Tile.png",50,50)
 tile4:setReferencePoint(display.TopLeftReferencePoint)
-tile4.x = leftX + screenW/20 + tile1.width*2
-tile4.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile4.x = leftX + screenW/20 + tile1.width*5
+tile4.y = screenH/2.5 - tile1.height/2 + topY
 
 tile5 = display.newImageRect("Tile.png",50,50)
 tile5:setReferencePoint(display.TopLeftReferencePoint)
-tile5.x = leftX + screenW/20 + tile1.width*3
-tile5.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile5.x = leftX + screenW/20 + tile1.width*6
+tile5.y = screenH/2.5 - tile1.height/2 + topY
 
 tile6 = display.newImageRect("Tile.png",50,50)
 tile6:setReferencePoint(display.TopLeftReferencePoint)
-tile6.x = leftX + screenW/20 + tile1.width*4
-tile6.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile6.x = leftX + screenW/20 + tile1.width*7
+tile6.y = screenH/2.5 - tile1.height/2 + topY
 
 tile7 = display.newImageRect("Tile.png",50,50)
 tile7:setReferencePoint(display.TopLeftReferencePoint)
 tile7.x = leftX + screenW/20 + tile1.width*5
-tile7.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile7.y = screenH/1.5 - tile1.height/2 + topY
 
 tile8 = display.newImageRect("Tile.png",50,50)
 tile8:setReferencePoint(display.TopLeftReferencePoint)
 tile8.x = leftX + screenW/20 + tile1.width*6
-tile8.y = screenH/2 - tile1.height/2 + topY - tile3.height*2
+tile8.y = screenH/1.5 - tile1.height/2 + topY
 
 tile9 = display.newImageRect("Tile.png",50,50)
 tile9:setReferencePoint(display.TopLeftReferencePoint)
-tile9.x = leftX + screenW/20 + tile1.width*6
-tile9.y = screenH/2 - tile1.height/2 + topY - tile3.height
+tile9.x = leftX + screenW/20 + tile1.width*7
+tile9.y = screenH/1.5 - tile1.height/2 + topY
 
 counter = 0
 
@@ -118,14 +118,14 @@ local instructions = {
 	
 local answers = {
     [1] = 1,
-    [2] = 3,
-    [3] = 3,
+    [2] = 1,
+    [3] = 5,
     [4] = 1,
     [5] = 1,
-	[6] = 1,
+	[6] = 6,
     [7] = 1,
-    [8] = 4,
-    [9] = 4
+    [8] = 1,
+    [9] = 1
     }
 	
 
@@ -147,6 +147,10 @@ function moveCharacter()
 			movement = transition.to(character, {time=500, y=character.y - character.width})
 		elseif x==4 then
 			movement = transition.to(character, {time=500, y=character.y + character.width})
+		elseif x==5 then
+			movement = transition.to(character, {time=500, x=images[4].x, y=images[4].y})
+		elseif x==6 then
+			movement = transition.to(character, {time=500, x=images[7].x, y=images[7].y})
 		end
 		
 		if(x~=y) then
@@ -181,7 +185,7 @@ function restartGame()
 	timer.cancel(timerCongelacion)
 	timer.performWithDelay(600, function()
 	character.x = leftX + screenW/20
-	character.y = screenH/2 - character.height/2 + topY
+	character.y = screenH/5 - character.height/2 + topY
 	end,1)
 	playButton:addEventListener("touch",startGame)
 end
@@ -386,25 +390,7 @@ function createInterface()
 		if img.x == instructionsPositions[1] then
 			newImage = display.newImageRect("Imagenes/yellow.png",50,50)
 			instructionType = 1
-		elseif img.x == instructionsPositions[2] then
-			newImage = display.newImageRect("Imagenes/blue.png",50,50)
-			instructionType = 2
-		elseif img.x == instructionsPositions[3] then
-			newImage = display.newImageRect("Imagenes/red.png",50,50)
-			instructionType = 3
-		elseif img.x == instructionsPositions[4] then
-			newImage = display.newImageRect("Imagenes/green.png",50,50)
-			instructionType = 4
-		elseif img.x == instructionsPositions[5] then
-			newImage = display.newImageRect("Imagenes/function1.png",50,50)
-			instructionType = 5
-		elseif img.x == instructionsPositions[6] then
-			newImage = display.newImageRect("Imagenes/function2.png",50,50)
-			instructionType = 6
-		end
-
-
-		newImage:toBack()
+			newImage:toBack()
 		newImage.name = "newImage"
 		newImage:setReferencePoint(display.TopLeftReferencePoint)
 		newImage.x = img.x
@@ -413,6 +399,70 @@ function createInterface()
 
 
 		newImage:addEventListener( "touch", myTouchListener )
+		elseif img.x == instructionsPositions[2] then
+			newImage = display.newImageRect("Imagenes/blue.png",50,50)
+			instructionType = 2
+			newImage:toBack()
+		newImage.name = "newImage"
+		newImage:setReferencePoint(display.TopLeftReferencePoint)
+		newImage.x = img.x
+		newImage.y = img.y
+		imagesGroup:insert( newImage )
+
+
+		newImage:addEventListener( "touch", myTouchListener )
+		elseif img.x == instructionsPositions[3] then
+			newImage = display.newImageRect("Imagenes/red.png",50,50)
+			instructionType = 3
+			newImage:toBack()
+		newImage.name = "newImage"
+		newImage:setReferencePoint(display.TopLeftReferencePoint)
+		newImage.x = img.x
+		newImage.y = img.y
+		imagesGroup:insert( newImage )
+
+
+		newImage:addEventListener( "touch", myTouchListener )
+		elseif img.x == instructionsPositions[4] then
+			newImage = display.newImageRect("Imagenes/green.png",50,50)
+			instructionType = 4
+			newImage:toBack()
+		newImage.name = "newImage"
+		newImage:setReferencePoint(display.TopLeftReferencePoint)
+		newImage.x = img.x
+		newImage.y = img.y
+		imagesGroup:insert( newImage )
+
+
+		newImage:addEventListener( "touch", myTouchListener )
+		elseif img.x == instructionsPositions[5] then
+			newImage = display.newImageRect("Imagenes/function1.png",50,50)
+			instructionType = 5
+			newImage:toBack()
+		newImage.name = "newImage"
+		newImage:setReferencePoint(display.TopLeftReferencePoint)
+		newImage.x = img.x
+		newImage.y = img.y
+		imagesGroup:insert( newImage )
+
+
+		newImage:addEventListener( "touch", myTouchListener )
+		elseif img.x == instructionsPositions[6] then
+			newImage = display.newImageRect("Imagenes/function2.png",50,50)
+			instructionType = 6
+			newImage:toBack()
+		newImage.name = "newImage"
+		newImage:setReferencePoint(display.TopLeftReferencePoint)
+		newImage.x = img.x
+		newImage.y = img.y
+		imagesGroup:insert( newImage )
+
+
+		newImage:addEventListener( "touch", myTouchListener )
+		end
+
+
+		
 	end
 
 
